@@ -26,4 +26,28 @@ class CustomersController < ApplicationController
       :address, :number, :district, :complement, :phone, :email, :birth_date, :city, :state)
   end
 
+
+=begin
+  - ENTITY'S FIELDS CUSTOMER
+  --------------------------
+  :description
+  :fantasy_name
+  :document
+  :another_document
+  :zip_code
+  :address
+  :number
+  :district
+  :complement
+  :phone
+  :email
+  :birth_date
+  :city
+  :state
+
+  description fantasy_name document another_document zip_code address number district complement phone email birth_date:date city state
+
+=end
+
+
 end
