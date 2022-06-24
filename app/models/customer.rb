@@ -1,2 +1,2 @@
-class Customer < ActiveRecord
+class Customer < ApplicationRecord
 end
