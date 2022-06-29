@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
   context "CRUD Customer" do
 
     it 'Create Customer' do
@@ -10,29 +9,6 @@ RSpec.describe Customer, type: :model do
       expect(customer_type.phone).to eq("18981016963")
     end
 
-=begin
-  - ENTITY'S FIELDS CUSTOMER
-  --------------------------
-  :description
-  :fantasy_name
-  :document
-  :another_document
-  :zip_code
-  :address
-  :number
-  :district
-  :complement
-  :phone
-  :email
-  :birth_date
-  :city
-  :state
-
-  description fantasy_name document another_document zip_code address number district complement phone email birth_date:date city state
-
-=end
-
-    # 27/06/2022 to-do: test with all customer fields
     it 'Create Customer' do
       customer_type = Customer.create(
         description: "GUMERCINDO CORDEIRO DA SILVA",
@@ -40,18 +16,29 @@ RSpec.describe Customer, type: :model do
         document: "12345678900",
         another_document: "123456789",
         zip_code: "12345678",
-        address: "San Francisco Avenue",
+        address: "SAN FRANCISCO AVENUE",
         number: "123A",
         district: "BLACK ISLAND",
         complement: nil,
         phone: "18981016963",
-        e_mail: "gumercindo@gmail.com",
+        email: "gumercindo@gmail.com",
         birth_date: 11/05/1980,
         city: "BIRIGUI",
         state: "SP")
-      # 29/06/2022 to-do: test with all customer fields (expect) <<
-      expect(customer_type.description).to eq(nil)
+      expect(customer_type.description).to eq("GUMERCINDO CORDEIRO DA SILVA")
+      expect(customer_type.fantasy_name).to eq("GU")
+      expect(customer_type.document).to eq("12345678900")
+      expect(customer_type.another_document).to eq("123456789")
+      expect(customer_type.zip_code).to eq("12345678")
+      expect(customer_type.address).to eq("SAN FRANCISCO AVENUE")
+      expect(customer_type.number).to eq("123A")
+      expect(customer_type.district).to eq("BLACK ISLAND")
+      expect(customer_type.complement).to eq(nil)
       expect(customer_type.phone).to eq("18981016963")
+      expect(customer_type.email).to eq("gumercindo@gmail.com")
+      expect(customer_type.birth_date).to eq(11/05/1980)
+      expect(customer_type.city).to eq("BIRIGUI")
+      expect(customer_type.state).to eq("SP")
     end
 
     describe 'required validations' do
