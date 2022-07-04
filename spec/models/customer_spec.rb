@@ -55,5 +55,28 @@ RSpec.describe Customer, type: :model do
       it { should validate_length_of(:complement).is_at_most(60) }
     end
 
+    it 'Update Customer' do
+      customer_type = Customer.create(
+        description: "John White",
+        fantasy_name: "John",
+        document: "12345678900",
+        another_document: "123456789",
+        zip_code: "12345678",
+        address: "Ten Street",
+        number: "123A",
+        district: "Red Island",
+        complement: nil,
+        phone: "18981016963",
+        email: "gumercindo@gmail.com",
+        birth_date: 11/05/1980,
+        city: "New York City",
+        state: "NY")
+
+      customer_type.update(phone: "99999999999", email: "white.john@gmail.com")
+
+      expect(customer_type.phone).to eq("99999999999")
+      expect(customer_type.email).to eq("white.john@gmail.com")
+    end
+
   end
 end
