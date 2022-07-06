@@ -4,6 +4,13 @@ class CustomersController < ApplicationController
   # GET /customers or /customers.json
   def index
     @customers = Customer.all
+
+    # filter by ID
+    @customers = Customer.where("id = #{params[:id]}") if params[:id]
+    # filter by description (nome)
+    @customers = Customer.where("description = #{params[:description]}") if params[:description]
+    # filter by fantasy_name
+    @customers = Customer.where("fantasy_name = #{params[:fantasy_name]}") if params[:fantasy_name]
   end
 
   # GET /customers/1 or /customers/1.json
