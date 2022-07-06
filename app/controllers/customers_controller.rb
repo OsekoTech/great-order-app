@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: %i[ show edit update ]
+  before_action :set_customer, only: %i[ show edit update destroy ]
 
   # GET /customers or /customers.json
   def index
@@ -50,6 +50,16 @@ class CustomersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # DELETE /customers1 or /customers/1.json
+  def destroy
+    @customer.destroy
+
+    respond_to do |format|
+      format.html { redirect_to customer_url, notice: "O cliente foi excluído com sucesso!" }
+      format.json { head :no_content }
     end
   end
 
